@@ -3,10 +3,10 @@ const fs = require("fs");
 const request = require("request");
 
 var client = new Twitter({
-    consumer_key: 'Your_CONSUMER_KEY',
-    consumer_secret: 'Your_CONSUMER_SECRET',
-    access_token_key: 'Your_ACCESS_TOKEN_KEY',
-    access_token_secret: 'YOUR_ACCESS_TOKEN_SECRET'
+    consumer_key: 'r1k9PhxLtXOxowGoAVOCFdMmI',
+    consumer_secret: '2mvM93F1UPgw3hwVsvAyj0k011y9ZF1h3qmnuwRvdNjJbm24oK',
+    access_token_key: '1120987965092708352-FPT5peRFQas8pkvzQGvpKD2yYsZBqs',
+    access_token_secret: 'DMZsrPz1lRnPlmZVjd7mLrKrqB5sAfmG4V6wlIEH2SpUt'
   });
 
 var stream = client.stream('statuses/filter', {track: 'ElonMuskAOC' && 'elonmusk'});
