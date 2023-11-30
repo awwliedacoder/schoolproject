@@ -1,0 +1,64 @@
+#otsikko {
+    font-size: 50px;
+    margin-top: 3cm;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-shadow: 2px 2px;
+}
+
+
+body {
+	background: linear-gradient(45deg, #ff00ea, #209cee);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.glow {
+    width: 200px;
+    height: 50px;
+    position: relative;
+    right: -43%;
+    z-index: 0;
+    color: rgb(224, 9, 224);
+    background-color: #111;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:xx-large;
+}
+.glow:before {
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    animation: glowing 20s linear infinite;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* https://alvarotrigo.com/blog/10-cool-css-animations-to-add-to-your-website/ */
