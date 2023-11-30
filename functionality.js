@@ -1,23 +1,51 @@
-const Twitter = require('twitter');
-const fs = require("fs");
-const request = require("request");
+// Kanji ja Hiragana ja Katakana sanojen 'search engine'
+// Tarkoitus, että laitat sanan joko englanniksi tai japaniksi, ja se kääntää sanan APIN avulla.
+// Jisho.org:in tapainen sivusto...
 
-var client = new Twitter({
-    consumer_key: 'r1k9PhxLtXOxowGoAVOCFdMmI',
-    consumer_secret: '2mvM93F1UPgw3hwVsvAyj0k011y9ZF1h3qmnuwRvdNjJbm24oK',
-    access_token_key: '1120987965092708352-FPT5peRFQas8pkvzQGvpKD2yYsZBqs',
-    access_token_secret: 'DMZsrPz1lRnPlmZVjd7mLrKrqB5sAfmG4V6wlIEH2SpUt'
-  });
 
-var stream = client.stream('statuses/filter', {track: 'ElonMuskAOC' && 'elonmusk'});
-for(let i = 0; i < 200; i++)
-    stream.on('data', function(event) {
-        console.log("Tweeted by ::::>>>" + event.user.name + " ::::>>> " +  "Tweet is :::>>>> " + event.text + " ::::>>>");
-        fs.appendFile("tweettttt.txt", JSON.stringify(event));
+// Otetaan muuttuja tekstilaatikosta, joka otetaan ja sitten laitetaan seuraavaksi tähän jos... 
+// Merkki on kanji, tai hiragana tai katana..
+//Katsotaan mitä kanji merkit / katakana / hiragana tarkoittaa
+let i = document.getElementsByClassName("TextArea");
+async function lookKanji() {
+    const url = `https://kanjialive-api.p.rapidapi.com/api/public/search/${i.toLowerCase()}`;
+    const options = {
+	    method: 'GET',
+	    headers: {
+		    'X-RapidAPI-Key': '5055871238mshd37c6a70d5be848p127251jsnb26bf4b67492',
+		    'X-RapidAPI-Host': 'kanjialive-api.p.rapidapi.com'
+	}
+};
+    try {
+	    const response = await fetch(url, options);
+	    const result = await response.text();
+	    console.log(result);
+}   catch (error) {
+	    console.error(error);
+}
+}
+// Etsitään mahdollisia Kanjia englannikielisistä sanoista... Toimii näemmä vain pienillä kirjaimilla.
+async function searchKanji() {
+    const url = `https://kanjialive-api.p.rapidapi.com/api/public/search/advanced/?kem=${i.toLowerCase()}`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '5055871238mshd37c6a70d5be848p127251jsnb26bf4b67492',
+            'X-RapidAPI-Host': 'kanjialive-api.p.rapidapi.com'
+        }
+    };
+    
+    try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
     }
-)
-    stream.on('error', function(error) {
-        throw error;
-  });
-// Tällä yllä olevalla koodilla saamme Elonin Tweetit TWITTER API:n avulla. Tarvitsemme vain noin 200 niitä, joten laitetaan se looppiin. 
-// Niin kauan kuin I on pienemikuin 200, se luuppaa datan hankinnan.
+}
+
+function searchResult(){
+    const answer = ''
+    
+
+}
