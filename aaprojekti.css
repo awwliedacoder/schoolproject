@@ -1,11 +1,32 @@
 #otsikko {
     font-size: 50px;
-    margin-top: 3cm;
-    color: rgb(0, 0, 0);
+    margin-top: 1.5cm;
+    color: rgb(255, 255, 255);
     text-align: center;
-    text-shadow: 2px 2px;
+    text-decoration-line: underline;
+    display: block;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+#result{
+    text-align: center;
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: larger;
+    text-decoration: solid;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
 }
 
+#searchInput {
+    padding: 8px;
+    width: 300px;
+    margin: auto;
+    margin-top: 1.5cm;
+    display: block;
+    box-shadow: 1px 2px;
+    box-shadow: linear-gradient(45deg, #ff00ea, #209cee);
+    animation: gradient 5s ease infinite;
+}
 
 body {
 	background: linear-gradient(45deg, #ff00ea, #209cee);
@@ -39,6 +60,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size:xx-large;
+    display: block;
 }
 .glow:before {
     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
@@ -51,6 +73,8 @@ body {
     opacity: 0;
     transition: opacity .3s ease-in-out;
     border-radius: 10px;
+    margin: auto;
+    display: block;
 }
 
 
